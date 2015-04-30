@@ -1,0 +1,38 @@
+<template name="shipperForm">
+	<form name="shipperInfo" class="form-horizontal">
+		{{# if termsRefused}}
+		<div class="notice"> You must accept the terms and conditions </div>
+		{{/if}}
+		<input type="hidden" name="owningUser" value="{{ownedBy}}"> <!-- is this a security problem? -->
+		<input type="hidden" name="recordId" value="{{_id}}" >
+		<div class="control-group">
+		<label class="required control-label" for="fname">First Name: </label>
+		<input id="fname" name="firstName" type="text" value="{{firstName}}">
+	</div>
+	<div class="control-group">
+		<label class="required control-label" for="lname">Last Name: </label>
+		<input id="lname" name="lastName" type="text" value="{{lastName}}">
+	</div>
+	<div class="control-group">
+		<label class="required control-label" for="phone">Phone Number: </label>
+		<input name="phone" type="text" value="{{phone}}" id="phone">
+	</div>
+	<div class="control-group">
+		<label for="addr1" class="required control-label">Address: </label>
+		<input id="addr1" name="address" type="text" valuen="{{address}}">
+	    <input name="addressExt" type="text" value="{{addressExt}}">
+	</div>
+	<div class="control-group">
+		<label class="required control-label">City: <input name="city" type="text" value="{{city}}"></label>
+		<label class="required control-label">State: <input name="state" type="text" value="{{state}}"></label>
+		<label class="required control-label">Zip Code: <input name="zip" type="text" value="{{zip}}"></label>
+	</div>
+			<div class="control-group">
+				<div class="controls">
+		<label class="required checkbox">I Accept the Terms &amp; Conditions: <input name="acceptTerms" type="checkbox" ></label>
+		<input type="submit" name="Update" class="btn">
+	</div>
+	</div>
+ 	</form>
+	<a id="cancelEdit" href="#">cancel</a>	
+</template>

@@ -1,0 +1,19 @@
+<template name="layout">
+<div class="container">
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">a2b</a>
+    <ul class="nav">
+      <li class="{{isActiveRoute regex='shipperInfo'}}"><a href="/">Shipper Info</a></li>
+    <li><a href="/shipments" class="{{isActiveRoute regex='shipments'}}">Shipments</a></li>
+    <li>{{> loginButtons}}</li>
+  </ul>
+</div>
+</div>
+
+  {{#if currentUser}}
+    {{> yield}}
+  {{/if}}
+</div>
+</template>	
+

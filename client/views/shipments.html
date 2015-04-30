@@ -1,0 +1,13 @@
+<template name="shipments">
+	<h3>Shipments</h3>
+	{{#if isCreatingShipment}}
+	{{> shipmentForm}}
+	{{else}}
+	<a href="#" id="create">create</a>
+	<ul>
+		{{#each shipment}}
+		<li><address>{{address}}</address> </li>
+		{{/each}}
+	</ul>
+	{{/if}}
+</template>
