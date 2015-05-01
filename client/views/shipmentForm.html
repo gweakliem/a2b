@@ -3,12 +3,12 @@
 		<input type="hidden" name="owningUser" value="{{ownedBy}}"> <!-- is this a security problem? -->
 		<input type="hidden" name="recordId" value="{{_id}}" >
 	<div class="form-group">
-		<label class="" for="lname">Recipient Name: </label>
+		<label class="" for="rname">Recipient Name: </label>
 		<input id="rname" name="recipientName" type="text" value="{{recipientName}}">
 	</div>
 	<div class="form-group">
-		<label class="required " for="phone">Recipient Phone Number: </label>
-		<input name="phone" type="text" value="{{phone}}" id="phone">
+		<label class="required " for="recipientPhone">Recipient Phone Number: </label>
+		<input name="recipientPhone" type="text" value="{{recipientPhone}}" id="recipientPhone">
 	</div>
 	<div class="checkbox">
     <label>
@@ -20,7 +20,7 @@
 		<h4>Pickup From</h4>
 		<div class="checkbox">
 	    <label>
-	      <input type="checkbox" id="shipFromShipper"> Use Shipper Info 
+	      <input type="checkbox" id="shipFromShipper"> Use Shipper Info
 	    </label>
 	  	</div>
 		<label for="puaddr1" class="required ">Address</label>
@@ -39,7 +39,7 @@
 		<h4>Ship To</h4>
 		<div class="checkbox">
 	    <label>
-	      <input type="checkbox" id="shipToShipper"> Use Shipper Info 
+	      <input type="checkbox" id="shipToShipper"> Use Shipper Info
 	    </label>
 	  	</div>
 		<label for="deladdr1" class="required ">Address</label>
@@ -54,12 +54,19 @@
 	<div class="form-group">
 		<label class="required " for="dzip">Zip Code</label><input id="dzip" name="deliveryZip" type="text" value="{{deliveryZip}}">
 	</div>
-	<div class="form-group">
-		<div class="controls">
-		<input type="submit" name="Update" class="btn">
-		</div>
+	<!-- other fields
+	description
+	weight
+	dimensions (h x w x d)
+	date / time desired for pickup
+	date / time desired for delivery
+-->
+<div class="form-group">
+	<div class="controls">
+	<input type="submit" name="Update" class="btn">
 	</div>
+</div>
  	</form>
-	<a id="cancelEdit" href="#">cancel</a>	
+	<a id="cancelEdit" href="#">cancel</a>
 
 </template>

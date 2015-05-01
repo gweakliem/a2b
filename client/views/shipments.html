@@ -1,12 +1,22 @@
 <template name="shipments">
-	<h3>Shipments</h3>
+	<h3>Pending Shipments</h3>
 	{{#if isCreatingShipment}}
 	{{> shipmentForm}}
 	{{else}}
 	<a href="#" id="create">create</a>
 	<ul>
-		{{#each shipment}}
-		<li><address>{{address}}</address> </li>
+		{{#each shipments}}
+		<li><strong>Pickup From</strong>
+		<address>{{pickupAddress}}<br>
+			{{pickupCity}}, {{pickupState}} {{pickupZip}}<br>
+			</address>
+			<strong>Deliver To</strong>
+			<address>{{recipientName}}<br>
+				{{deliveryAddress}}<br>
+			{{deliveryCity}}, {{deliveryState}} {{deliveryZip}}<br>
+			{{recipientPhone}}
+			</address>
+			</li>
 		{{/each}}
 	</ul>
 	{{/if}}

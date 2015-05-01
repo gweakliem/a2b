@@ -4,15 +4,17 @@ Template.shipmentForm.events({
     'submit form': function(event){
       event.preventDefault();
        Meteor.call('updateShipmentInfo', event.target.recordId.value, {
-        firstName: event.target.firstName.value,
-        lastName: event.target.lastName.value,
-        phone: event.target.phone.value,
-        address: event.target.address.value,
-        addressExt: event.target.addressExt.value,
-        city: event.target.city.value,
-        state: event.target.state.value,
-        zip: event.target.zip.value,
-        termsAccepted: true
+        recipientName: event.target.recipientName.value,
+        recipientPhone: event.target.recipientPhone.value,
+        recipientMustSign: event.target.recipientMustSign.checked,
+        pickupAddress: event.target.pickupAddress.value,
+        pickupCity: event.target.pickupCity.value,
+        pickupState: event.target.pickupState.value,
+        pickupZip: event.target.pickupZip.value,
+        deliveryAddress: event.target.deliveryAddress.value,
+        deliveryCity: event.target.deliveryCity.value,
+        deliveryState: event.target.deliveryState.value,
+        deliveryZip: event.target.deliveryZip.value,
       }, function(error, result) {
         if (error) {
           console.log("oops! " + error);
