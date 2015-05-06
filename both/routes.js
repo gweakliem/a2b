@@ -1,8 +1,24 @@
 Router.configure({
-  layoutTemplate: 'layout'
+  layoutTemplate: 'layout',
+  loadingTemplate: 'loading'
 });
 
-Router.route('/', {name: 'shipperInfo', path: '/'});
+Router.route('/', {name: 'ship', path: '/'});
+Router.route('/drive', {
+    name: 'drive',
+    path: '/drive',
+    waitOn: function () {
+      return [
+          Meteor.subscribe('drivers'),
+          Meteor.subscribe('shipments'),
+          ]},
+  onBeforeAction: function () {
+    if (!Shippers.findOne()) {
+      Router.go('drive');
+    }
+    this.next();
+  }
+});
 Router.route('shipments', {
 	path: '/shipments',
   name: 'shipments',
@@ -13,7 +29,7 @@ Router.route('shipments', {
             ]},
 	onBeforeAction: function () {
   		if (!Shippers.findOne()) {
-  			Router.go('shipperInfo');
+  			Router.go('ship');
   		}
   		this.next();
     }

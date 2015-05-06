@@ -6,8 +6,9 @@
 
 meteor-platform
 accounts-password
-accounts-ui
-bootstrap
 iron:router
 zimme:iron-router-active
 sacha:spin
+accounts-ui-unstyled
+less
+nemo64:bootstrap

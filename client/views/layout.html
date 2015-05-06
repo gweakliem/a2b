@@ -1,19 +1,24 @@
 <template name="layout">
 <div class="container">
-<div class="navbar">
+<nav class="navbar" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">a2b</a>
+  </div>
   <div class="navbar-inner">
-    <a class="brand" href="#">a2b</a>
-    <ul class="nav">
+    <ul class="nav navbar-nav">
       <li class="{{isActiveRoute regex='shipperInfo'}}"><a href="/">Shipper Info</a></li>
-    <li><a href="/shipments" class="{{isActiveRoute regex='shipments'}}">Shipments</a></li>
-    <li>{{> loginButtons}}</li>
-  </ul>
-</div>
-</div>
+      <li><a href="/shipments" class="{{isActiveRoute regex='shipments'}}">Shipments</a></li>
+      <li>{{> loginButtons}}</li>
+    </ul>
+  </div>
+</nav>
 
   {{#if currentUser}}
     {{> yield}}
+  {{else}}
+  <button id="create-shipper" type="button" class="btn btn-lg btn-success">I want to ship something</button>
+  <button id="create-driver" type="button" class="btn btn-lg btn-success">I want to drive for a2b</button>
   {{/if}}
-</div>
-</template>	
 
+</div>
+</template>

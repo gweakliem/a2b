@@ -1,5 +1,6 @@
 Shippers = new Mongo.Collection('shippers');
 Shipments = new Mongo.Collection('shipments');
+Drivers = new Mongo.Collection('drivers');
 
 Meteor.methods({
     'updateShipperInfo': function(id, shipperInfo){
@@ -54,4 +55,4 @@ Meteor.methods({
         });
       }
     }
-  });
+});

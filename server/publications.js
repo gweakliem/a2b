@@ -6,4 +6,8 @@ Meteor.publish('shippers', function(){
 Meteor.publish('shipments', function() {
 	var currentUserId = this.userId;
 	return Shipments.find({ownedBy: currentUserId});
-})
+});
+
+Meteor.publish('drivers', function() {
+  return Drivers.find({ownedBy: this.userId});
+});
