@@ -54,5 +54,10 @@ Meteor.methods({
           }
         });
       }
+    },
+    'createAccount': function(email, password) {
+      Accounts.createUser({username: email,
+          email: email,
+          password: password});
     }
 });

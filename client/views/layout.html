@@ -6,19 +6,14 @@
   </div>
   <div class="navbar-inner">
     <ul class="nav navbar-nav">
-      <li class="{{isActiveRoute regex='shipperInfo'}}"><a href="/">Shipper Info</a></li>
+      <li class="{{isActiveRoute regex='shipperInfo'}}"><a href="/ship">Shipper Info</a></li>
       <li><a href="/shipments" class="{{isActiveRoute regex='shipments'}}">Shipments</a></li>
       <li>{{> loginButtons}}</li>
     </ul>
   </div>
 </nav>
 
-  {{#if currentUser}}
-    {{> yield}}
-  {{else}}
-  <button id="create-shipper" type="button" class="btn btn-lg btn-success">I want to ship something</button>
-  <button id="create-driver" type="button" class="btn btn-lg btn-success">I want to drive for a2b</button>
-  {{/if}}
+  {{> yield}}
 
 </div>
 </template>

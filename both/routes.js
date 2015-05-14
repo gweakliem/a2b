@@ -3,7 +3,19 @@ Router.configure({
   loadingTemplate: 'loading'
 });
 
-Router.route('/', {name: 'ship', path: '/'});
+Router.route('/', {
+  name: 'default',
+  path: '/'
+})
+Router.route('/ship',{
+  name: 'ship',
+  path: '/ship',
+  waitOn: function() {
+    return [
+      Meteor.subscribe('shippers')
+    ];
+  },
+});
 Router.route('/drive', {
     name: 'drive',
     path: '/drive',
@@ -33,4 +45,20 @@ Router.route('shipments', {
   		}
   		this.next();
     }
+});
+Router.route('newDriver', {
+  path: '/newShipper',
+  name: 'newShipper',
+  template: 'newAccount',
+  onBeforeAction: function() {
+    this.next();
+  }
+});
+Router.route('newDriver', {
+  path: '/newDriver',
+  name: 'newDriver',
+  template: 'newAccount',
+  onBeforeAction: function() {
+    this.next();
+  }
 });
